@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.11.8 on win32)" generated="2026-01-22T10:47:11.138234" rpa="false" schemaversion="5">
+<suite id="s1" name="Flight Testing" source="C:\Users\yukti\PycharmProjects\NewProject\FlightTesting\Flight_Testing.robot">
+<kw name="Open Browser To Wego" owner="Keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:11.588969" level="INFO">Opening browser 'Chrome' to base url 'https://www.wego.co.in/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-22T10:47:11.588969" elapsed="2.281069"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-01-22T10:47:13.870038" elapsed="9.820954"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ONE_WAY_TRIP}</arg>
+<arg>${TIME}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-22T10:47:23.693996" elapsed="0.151979"/>
+</kw>
+<msg time="2026-01-22T10:47:23.845975" level="INFO">${loaded} = True</msg>
+<var>${loaded}</var>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${ONE_WAY_TRIP}</arg>
+<arg>${TIME}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-22T10:47:23.692996" elapsed="0.153766"/>
+</kw>
+<kw name="Run Keyword Unless" owner="BuiltIn">
+<msg time="2026-01-22T10:47:23.846762" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<arg>${loaded}</arg>
+<arg>Fail</arg>
+<arg>Application did not launch successfully</arg>
+<doc>*DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*</doc>
+<status status="PASS" start="2026-01-22T10:47:23.846762" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-22T10:47:23.848774" level="INFO">Application launched successfully</msg>
+<arg>Application launched successfully</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-22T10:47:23.848774" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-01-22T10:47:11.588969" elapsed="12.259805"/>
+</kw>
+<test id="s1-t1" name="One Way Flight Search With Validations" line="9">
+<kw name="Select One Way Trip" owner="Keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:23.901708" level="INFO">Element 'xpath=//button[normalize-space()='One-way']' is displayed.</msg>
+<arg>${ONE_WAY_TRIP}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-22T10:47:23.850785" elapsed="0.050923"/>
+</kw>
+<msg time="2026-01-22T10:47:23.901708" level="INFO">${visible} = True</msg>
+<var>${visible}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${ONE_WAY_TRIP}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-22T10:47:23.850785" elapsed="0.050923"/>
+</kw>
+<kw name="Run Keyword Unless" owner="BuiltIn">
+<msg time="2026-01-22T10:47:23.903207" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<arg>${visible}</arg>
+<arg>Fail</arg>
+<arg>One-way trip button is not visible</arg>
+<doc>*DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*</doc>
+<status status="PASS" start="2026-01-22T10:47:23.903207" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:23.904232" level="INFO">Clicking element 'xpath=//button[normalize-space()='One-way']'.</msg>
+<arg>${ONE_WAY_TRIP}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:47:23.904232" elapsed="0.343140"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-22T10:47:24.248107" level="INFO">One-way trip selected</msg>
+<arg>One-way trip selected</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-22T10:47:24.247372" elapsed="0.000735"/>
+</kw>
+<status status="PASS" start="2026-01-22T10:47:23.850785" elapsed="0.397322"/>
+</kw>
+<kw name="Select From And To City" owner="Keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:24.600331" level="INFO">Element 'xpath=//input[@id="outboundSearchQuery"]' is displayed.</msg>
+<arg>${FROM_CITY}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-22T10:47:24.250991" elapsed="0.349340"/>
+</kw>
+<msg time="2026-01-22T10:47:24.600331" level="INFO">${from_visible} = True</msg>
+<var>${from_visible}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${FROM_CITY}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-22T10:47:24.250991" elapsed="0.349340"/>
+</kw>
+<kw name="Run Keyword Unless" owner="BuiltIn">
+<msg time="2026-01-22T10:47:24.600331" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<arg>${from_visible}</arg>
+<arg>Fail</arg>
+<arg>From city input is not visible</arg>
+<doc>*DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*</doc>
+<status status="PASS" start="2026-01-22T10:47:24.600331" elapsed="0.001390"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:24.601721" level="INFO">Clicking element 'xpath=//input[@id="outboundSearchQuery"]'.</msg>
+<arg>${FROM_CITY}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:47:24.601721" elapsed="0.274784"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:24.876505" level="INFO">Typing text 'New Delhi' into text field 'xpath=//input[@id="outboundSearchQuery"]'.</msg>
+<arg>${FROM_CITY}</arg>
+<arg>New Delhi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:47:24.876505" elapsed="0.968167"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:25.846671" level="INFO">Sending key(s) ('ENTER',) to xpath=//input[@id="outboundSearchQuery"] element.</msg>
+<msg time="2026-01-22T10:47:26.224518" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2026-01-22T10:47:26.224518" level="INFO">Releasing special key ENTER.</msg>
+<arg>${FROM_CITY}</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2026-01-22T10:47:25.844672" elapsed="0.490120"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:26.378510" level="INFO">Element 'xpath=//input[@id="inboundSearchQuery"]' is displayed.</msg>
+<arg>${TO_CITY}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-22T10:47:26.335805" elapsed="0.043739"/>
+</kw>
+<msg time="2026-01-22T10:47:26.379544" level="INFO">${to_visible} = True</msg>
+<var>${to_visible}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${TO_CITY}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-22T10:47:26.335805" elapsed="0.043739"/>
+</kw>
+<kw name="Run Keyword Unless" owner="BuiltIn">
+<msg time="2026-01-22T10:47:26.381543" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<arg>${to_visible}</arg>
+<arg>Fail</arg>
+<arg>To city input is not visible</arg>
+<doc>*DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*</doc>
+<status status="PASS" start="2026-01-22T10:47:26.380560" elapsed="0.000983"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:26.382545" level="INFO">Clicking element 'xpath=//input[@id="inboundSearchQuery"]'.</msg>
+<arg>${TO_CITY}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:47:26.382545" elapsed="0.119008"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:26.502564" level="INFO">Typing text 'Dubai' into text field 'xpath=//input[@id="inboundSearchQuery"]'.</msg>
+<arg>${TO_CITY}</arg>
+<arg>Dubai</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-22T10:47:26.501553" elapsed="0.122802"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:26.627832" level="INFO">Sending key(s) ('ENTER',) to xpath=//input[@id="inboundSearchQuery"] element.</msg>
+<msg time="2026-01-22T10:47:26.966593" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2026-01-22T10:47:26.966593" level="INFO">Releasing special key ENTER.</msg>
+<arg>${TO_CITY}</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2026-01-22T10:47:26.624355" elapsed="0.483356"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-22T10:47:27.108714" level="INFO">From and To cities selected</msg>
+<arg>From and To cities selected</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-22T10:47:27.107711" elapsed="0.001003"/>
+</kw>
+<status status="PASS" start="2026-01-22T10:47:24.248107" elapsed="2.860607"/>
+</kw>
+<kw name="Select Passengers" owner="Keywords">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:27.111713" level="INFO">Clicking element 'xpath=//button[text()='Allow']'.</msg>
+<msg time="2026-01-22T10:47:27.790676" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-68.png"&gt;&lt;img src="selenium-screenshot-68.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-22T10:47:27.790676" level="FAIL">Element with locator 'xpath=//button[text()='Allow']' not found.</msg>
+<arg>xpath=//button[text()='Allow']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-01-22T10:47:27.111713" elapsed="0.691584">Element with locator 'xpath=//button[text()='Allow']' not found.</status>
+</kw>
+<arg>Click Element</arg>
+<arg>xpath=//button[text()='Allow']</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-01-22T10:47:27.110710" elapsed="0.692587"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PASSENGER_PICKER}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-22T10:47:27.803297" elapsed="0.003787"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-22T10:47:27.807084" level="INFO">Clicking element 'xpath=//div[@data-testid="searchForm_noOfPassenger"]'.</msg>
+<msg time="2026-01-22T10:47:29.129288" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-69.png"&gt;&lt;img src="selenium-screenshot-69.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-22T10:47:29.129288" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;div data-testid="searchForm_noOfPassenger" data-pw="searchForm_noOfPassenger" aria-label="Passenger picker" role="button" aria-haspopup="dialog" class="P8oDsMPbYfHQH0imVJHm"&gt;...&lt;/div&gt; is not clickable at point (636, 352). Other element would receive the click: &lt;div data-pw="" class="q42d20HYSr4zaNvncxd2 XBrNIre1ntW9svXcsZJS EcXLAVPdDt3_8ZO8k6dA"&gt;...&lt;/div&gt;
+  (Session info: chrome=143.0.7499.147); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6413988d5
+	0x7ff641398930
+	0x7ff64117165d
+	0x7ff6411d19e8
+	0x7ff6411cf40f
+	0x7ff6411cc417
+	0x7ff6411cb338
+	0x7ff6411bce7f
+	0x7ff6411f1fda
+	0x7ff6411bc746
+	0x7ff64121ac97
+	0x7ff6411bac29
+	0x7ff6411bba93
+	0x7ff6416b0620
+	0x7ff6416aaf60
+	0x7ff6416c96c6
+	0x7ff6413b5dd4
+	0x7ff6413bed7c
+	0x7ff6413a1ff4
+	0x7ff6413a21a5
+	0x7ff641387ed2
+	0x7ff965b8e8d7
+	0x7ff96734c53c
+</msg>
+<arg>${PASSENGER_PICKER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-01-22T10:47:27.807084" elapsed="1.325215">ElementClickInterceptedException: Message: element click intercepted: Element &lt;div data-testid="searchForm_noOfPassenger" data-pw="searchForm_noOfPassenger" aria-label="Passenger picker" role="button" aria-haspopup="dialog" class="P8oDsMPbYfHQH0imVJHm"&gt;...&lt;/div&gt; is not clickable at point (636, 352). Other element would receive the click: &lt;div data-pw="" class="q42d20HYSr4zaNvncxd2 XBrNIre1ntW9svXcsZJS EcXLAVPdDt3_8ZO8k6dA"&gt;...&lt;/div&gt;
+  (Session info: chrome=143.0.7499.147); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6413988d5
+	0x7ff641398930
+	0x7ff64117165d
+	0x7ff6411d19e8
+	0x7ff6411cf40f
+	0x7ff6411cc417
+	0x7ff6411cb338
+	0x7ff6411bce7f
+	0x7ff6411f1fda
+	0x7ff6411bc746
+	0x7ff64121ac97
+	0x7ff6411bac29
+	0x7ff6411bba93
+	0x7ff6416b0620
+	0x7ff6416aaf60
+	0x7ff6416c96c6
+	0x7ff6413b5dd4
+	0x7ff6413bed7c
+	0x7ff6413a1ff4
+	0x7ff6413a21a5
+	0x7ff641387ed2
+	0x7ff965b8e8d7
+	0x7ff96734c53c
+</status>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${picker_visible}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${PASSENGER_LIST}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-01-22T10:47:29.133302" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword Unless" owner="BuiltIn">
+<msg time="2026-01-22T10:47:29.133302" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<arg>${picker_visible}</arg>
+<arg>Fail</arg>
+<arg>Passenger picker not visible</arg>
+<doc>*DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*</doc>
+<status status="NOT RUN" start="2026-01-22T10:47:29.133302" elapsed="0.046262"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${ADD_ADULT}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-22T10:47:29.179564" elapsed="0.002009"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${APPLY_PASSENGER}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-22T10:47:29.181573" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Passenger selection completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-01-22T10:47:29.181573" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2026-01-22T10:47:27.110710" elapsed="2.070863">ElementClickInterceptedException: Message: element click intercepted: Element &lt;div data-testid="searchForm_noOfPassenger" data-pw="searchForm_noOfPassenger" aria-label="Passenger picker" role="button" aria-haspopup="dialog" class="P8oDsMPbYfHQH0imVJHm"&gt;...&lt;/div&gt; is not clickable at point (636, 352). Other element would receive the click: &lt;div data-pw="" class="q42d20HYSr4zaNvncxd2 XBrNIre1ntW9svXcsZJS EcXLAVPdDt3_8ZO8k6dA"&gt;...&lt;/div&gt;
+  (Session info: chrome=143.0.7499.147); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6413988d5
+	0x7ff641398930
+	0x7ff64117165d
+	0x7ff6411d19e8
+	0x7ff6411cf40f
+	0x7ff6411cc417
+	0x7ff6411cb338
+	0x7ff6411bce7f
+	0x7ff6411f1fda
+	0x7ff6411bc746
+	0x7ff64121ac97
+	0x7ff6411bac29
+	0x7ff6411bba93
+	0x7ff6416b0620
+	0x7ff6416aaf60
+	0x7ff6416c96c6
+	0x7ff6413b5dd4
+	0x7ff6413bed7c
+	0x7ff6413a1ff4
+	0x7ff6413a21a5
+	0x7ff641387ed2
+	0x7ff965b8e8d7
+	0x7ff96734c53c
+</status>
+</kw>
+<kw name="Select Cabin Class" owner="Keywords">
+<status status="NOT RUN" start="2026-01-22T10:47:29.181573" elapsed="0.000000"/>
+</kw>
+<kw name="Select Payment" owner="Keywords">
+<status status="NOT RUN" start="2026-01-22T10:47:29.183581" elapsed="0.000000"/>
+</kw>
+<kw name="Click Search" owner="Keywords">
+<status status="NOT RUN" start="2026-01-22T10:47:29.183581" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2026-01-22T10:47:23.848774" elapsed="5.336814">ElementClickInterceptedException: Message: element click intercepted: Element &lt;div data-testid="searchForm_noOfPassenger" data-pw="searchForm_noOfPassenger" aria-label="Passenger picker" role="button" aria-haspopup="dialog" class="P8oDsMPbYfHQH0imVJHm"&gt;...&lt;/div&gt; is not clickable at point (636, 352). Other element would receive the click: &lt;div data-pw="" class="q42d20HYSr4zaNvncxd2 XBrNIre1ntW9svXcsZJS EcXLAVPdDt3_8ZO8k6dA"&gt;...&lt;/div&gt;
+  (Session info: chrome=143.0.7499.147); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6413988d5
+	0x7ff641398930
+	0x7ff64117165d
+	0x7ff6411d19e8
+	0x7ff6411cf40f
+	0x7ff6411cc417
+	0x7ff6411cb338
+	0x7ff6411bce7f
+	0x7ff6411f1fda
+	0x7ff6411bc746
+	0x7ff64121ac97
+	0x7ff6411bac29
+	0x7ff6411bba93
+	0x7ff6416b0620
+	0x7ff6416aaf60
+	0x7ff6416c96c6
+	0x7ff6413b5dd4
+	0x7ff6413bed7c
+	0x7ff6413a1ff4
+	0x7ff6413a21a5
+	0x7ff641387ed2
+	0x7ff965b8e8d7
+	0x7ff96734c53c
+</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-22T10:47:29.185588" elapsed="2.546362"/>
+</kw>
+<status status="FAIL" start="2026-01-22T10:47:11.143177" elapsed="20.588773"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Flight Testing" id="s1" pass="0" fail="1" skip="0">Flight Testing</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-01-22T10:47:23.846762" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<msg time="2026-01-22T10:47:23.903207" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<msg time="2026-01-22T10:47:24.600331" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<msg time="2026-01-22T10:47:26.381543" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<msg time="2026-01-22T10:47:29.133302" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+</errors>
+</robot>
